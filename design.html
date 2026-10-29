@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<style>
+:root{
+  --navy:#212E3E; --navy2:#2B3A4E; --navy3:#18222F;
+  --gold:#B58333; --gold-l:#D6AE6A; --gold-p:#E9D3A8;
+  --lg:#F2F2F2; --white:#FFFFFF; --dg:#5A5657; --gray:#847E80; --red:#C73B28;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#999;font-family:"Noto Serif CJK TC",serif}
+.page{width:1040px;height:1560px;position:relative;overflow:hidden;margin-bottom:40px}
+.dark{background:
+   radial-gradient(ellipse 80% 50% at 85% 10%,rgba(181,131,51,.20),transparent 60%),
+   radial-gradient(ellipse 70% 50% at 0% 100%,rgba(181,131,51,.10),transparent 60%),
+   linear-gradient(165deg,#2A394C 0%,var(--navy) 45%,var(--navy3) 100%);color:#fff}
+.light{background:
+   radial-gradient(ellipse 80% 40% at 100% 0%,rgba(181,131,51,.10),transparent 60%),
+   linear-gradient(180deg,#FFFFFF 0%,var(--lg) 100%);color:var(--navy)}
+.sans{font-family:"Noto Sans CJK TC",sans-serif}
+.en{font-family:"TeX Gyre Pagella",serif;letter-spacing:.28em}
+.script{font-family:"TeX Gyre Chorus",cursive}
+.gold{color:var(--gold)} .goldl{color:var(--gold-l)}
+.kicker{display:flex;align-items:center;gap:18px;font-family:"Noto Sans CJK TC";font-weight:700;letter-spacing:.3em;font-size:28px;color:var(--gold)}
+.kicker i{display:block;width:90px;height:2px;background:var(--gold)}
+.dark .kicker{color:var(--gold-l)} .dark .kicker i{background:var(--gold-l)}
+svg.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.logo{position:absolute;top:56px;left:64px;height:92px}
+.foot{position:absolute;bottom:44px;left:0;right:0;text-align:center;font-family:"Noto Sans CJK TC";font-size:24px;letter-spacing:.4em}
+.dark .foot{color:rgba(255,255,255,.65)} .light .foot{color:var(--gray)}
+
+/* ---------- P1 ---------- */
+#p1 .photo{position:absolute;right:-20px;bottom:0;height:1330px}
+#p1 .glow{position:absolute;right:40px;bottom:120px;width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(circle,rgba(181,131,51,.35),transparent 65%)}
+#p1 .ring{position:absolute;right:60px;top:300px;width:560px;height:560px;border-radius:50%;border:2px solid rgba(214,174,106,.45)}
+#p1 .txt{position:absolute;left:64px;top:230px;width:540px}
+#p1 .bigname{font-size:150px;font-weight:900;letter-spacing:.06em;line-height:1}
+#p1 .eling{font-size:110px;color:var(--gold-l);margin-top:6px;line-height:1}
+#p1 .role{margin-top:34px;display:inline-block;font-family:"Noto Sans CJK TC";font-weight:700;font-size:32px;letter-spacing:.2em;
+  padding:12px 26px;background:var(--gold);color:#fff;border-radius:8px}
+#p1 .quote{margin-top:46px;font-size:42px;font-weight:800;line-height:1.6;letter-spacing:.06em}
+#p1 .quote em{font-style:normal;color:var(--gold-l)}
+#p1 ul{list-style:none;margin-top:40px;border-top:1.5px solid rgba(214,174,106,.5);padding-top:30px}
+#p1 li{font-family:"Noto Sans CJK TC";font-size:28px;line-height:1.5;letter-spacing:.06em;color:rgba(255,255,255,.9);
+  padding-left:34px;position:relative;margin-bottom:20px}
+#p1 li::before{content:"";position:absolute;left:4px;top:15px;width:12px;height:12px;transform:rotate(45deg);background:var(--gold-l)}
+#p1 li b{color:#fff;font-weight:700;display:block}
+#p1 .tags{display:flex;gap:14px;margin-top:22px}
+#p1 .tags span{font-family:"Noto Sans CJK TC";font-size:24px;letter-spacing:.14em;padding:10px 22px;border:1.5px solid var(--gold-l);color:var(--gold-l);border-radius:999px}
+
+/* ---------- P2 ---------- */
+#p2 .head{position:absolute;left:64px;right:64px;top:190px}
+#p2 h2{font-size:66px;font-weight:900;line-height:1.25;margin-top:22px;letter-spacing:.04em}
+#p2 h2 .gold{color:var(--gold)}
+#p2 .lead{font-family:"Noto Sans CJK TC";font-size:29px;line-height:1.75;color:var(--dg);margin-top:26px;letter-spacing:.06em}
+#p2 .byv{position:absolute;right:64px;top:70px;font-size:64px;color:var(--gold);line-height:.95;text-align:right}
+#p2 .pill3{display:flex;gap:12px;margin-top:26px}
+#p2 .pill3 span{font-family:"Noto Sans CJK TC";font-weight:700;font-size:25px;letter-spacing:.12em;padding:10px 20px;border-radius:8px;background:var(--navy);color:#fff}
+#p2 .pill3 span:nth-child(2){background:var(--gold)}
+#p2 .sys{position:absolute;left:64px;right:64px;top:700px;display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.sc{border-radius:24px;padding:34px 30px 30px;position:relative;overflow:hidden}
+.sc.n{background:var(--navy);color:#fff}
+.sc.w{background:#fff;color:var(--navy);box-shadow:0 10px 30px rgba(33,46,62,.10),inset 0 0 0 2px var(--gold)}
+.sc .lab{font-family:"Noto Sans CJK TC";font-size:24px;font-weight:700;letter-spacing:.2em;color:var(--gold-l)}
+.sc.w .lab{color:var(--gold)}
+.sc .t{font-size:52px;font-weight:900;margin-top:10px;letter-spacing:.04em}
+.sc .min{display:flex;align-items:baseline;gap:10px;margin-top:10px;font-family:"Noto Sans CJK TC";font-size:24px;letter-spacing:.08em}
+.sc .min b{font-family:"TeX Gyre Pagella";font-size:64px;color:var(--gold-l);line-height:1}
+.sc.w .min b{color:var(--gold)}
+.sc ol{list-style:none;margin-top:22px;display:grid;grid-template-columns:1fr;gap:14px}
+.sc li{display:flex;align-items:center;gap:14px;font-family:"Noto Sans CJK TC";font-size:24px;letter-spacing:.05em}
+.sc li i{font-style:normal;font-family:"TeX Gyre Pagella";font-weight:700;font-size:21px;width:46px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  background:rgba(214,174,106,.18);color:var(--gold-l);flex:none}
+.sc.w li i{background:rgba(181,131,51,.12);color:var(--gold)}
+.sc li span{opacity:.75;font-size:20px;font-family:"TeX Gyre Pagella";letter-spacing:.04em}
+
+/* ---------- P3 ---------- */
+#p3 .head{position:absolute;left:64px;right:64px;top:190px;text-align:left}
+#p3 h2{font-size:92px;font-weight:900;line-height:1.2;margin-top:20px}
+#p3 .badge{display:inline-flex;align-items:center;gap:14px;margin-top:22px;padding:12px 26px;border-radius:999px;
+  background:linear-gradient(90deg,var(--gold),#C89A4B);font-family:"Noto Sans CJK TC";font-weight:700;font-size:28px;letter-spacing:.12em;color:#fff}
+#p3 .story{margin-top:28px;font-family:"Noto Sans CJK TC";font-size:26.5px;line-height:1.75;letter-spacing:.04em;color:rgba(255,255,255,.88)}
+#p3 .story b{color:var(--gold-l)}
+#p3 .duo{position:absolute;left:64px;right:64px;top:760px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+#p3 .bc{border-radius:22px;overflow:hidden;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1.5px rgba(214,174,106,.55)}
+#p3 .bc img{display:block;width:100%;height:auto}
+#p3 .bc .cap{padding:20px 24px 24px}
+#p3 .bc .k{font-family:"Noto Sans CJK TC";font-size:22px;letter-spacing:.18em;color:var(--gold-l);font-weight:700}
+#p3 .bc .t{font-size:46px;font-weight:900;margin-top:6px;letter-spacing:.06em}
+#p3 .bc .m{display:flex;align-items:baseline;gap:8px;margin-top:8px;font-family:"Noto Sans CJK TC";font-size:24px;letter-spacing:.06em;color:rgba(255,255,255,.85)}
+#p3 .bc .m b{font-family:"TeX Gyre Pagella";font-size:56px;color:var(--gold-l);line-height:1}
+
+/* ---------- P4 ---------- */
+#p4 .head{position:absolute;left:64px;right:64px;top:190px}
+#p4 h2{font-size:72px;font-weight:900;line-height:1.25;margin-top:20px}
+#p4 .lead{font-family:"Noto Sans CJK TC";font-size:28px;line-height:1.7;color:var(--dg);margin-top:20px;letter-spacing:.05em}
+#p4 .rows{position:absolute;left:64px;right:64px;top:560px;display:flex;flex-direction:column;gap:24px}
+.row{display:flex;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 8px 26px rgba(33,46,62,.09),inset 0 0 0 1.5px rgba(181,131,51,.55)}
+.row .side{width:150px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(180deg,#C99A4E,var(--gold) 60%,#8F6526)}
+.row:nth-child(2) .side{background:var(--navy)}
+.row .side b{font-family:"TeX Gyre Pagella";font-size:48px;line-height:1}
+.row .side i{display:block;width:40px;height:2px;background:rgba(255,255,255,.7);margin:12px 0}
+.row .side span{font-size:66px;font-weight:900;line-height:1}
+.row .main{padding:26px 30px}
+.row .t{font-size:42px;font-weight:900;letter-spacing:.04em}
+.row .d{font-family:"Noto Sans CJK TC";font-size:24px;color:var(--dg);margin-top:8px;line-height:1.55;letter-spacing:.03em}
+.row .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.row .chips span{font-family:"Noto Sans CJK TC";font-size:20px;font-weight:500;padding:6px 13px;border-radius:999px;background:#F6EDDD;color:var(--navy)}
+#p4 .team{border-radius:20px;background:var(--navy);color:#fff;padding:26px 32px;display:flex;align-items:center;gap:26px}
+#p4 .team .ic{width:76px;height:76px;border-radius:50%;background:var(--gold);flex:none;display:flex;align-items:center;justify-content:center}
+#p4 .team .ic svg{width:42px;height:42px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+#p4 .team b{font-size:34px;letter-spacing:.06em}
+#p4 .team p{font-family:"Noto Sans CJK TC";font-size:22px;color:rgba(255,255,255,.8);margin-top:6px;letter-spacing:.04em}
+
+/* ---------- P5 ---------- */
+#p5 .head{position:absolute;left:64px;right:64px;top:190px}
+#p5 h2{font-size:104px;font-weight:900;line-height:1.2;margin-top:20px;letter-spacing:.06em}
+#p5 h2 .goldl{color:var(--gold-l)}
+#p5 .sub{font-size:40px;font-weight:700;margin-top:18px;letter-spacing:.1em}
+#p5 .desc{font-family:"Noto Sans CJK TC";font-size:28px;line-height:1.8;color:rgba(255,255,255,.88);margin-top:30px;letter-spacing:.04em}
+#p5 .desc b{color:var(--gold-l)}
+#p5 .stats{position:absolute;left:64px;right:64px;top:800px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+#p5 .st{border-radius:20px;padding:28px 18px;text-align:center;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1.5px rgba(214,174,106,.55)}
+#p5 .st b{display:block;font-family:"TeX Gyre Pagella";font-size:60px;color:var(--gold-l);line-height:1}
+#p5 .st b small{font-size:30px}
+#p5 .st span{display:block;font-family:"Noto Sans CJK TC";font-size:23px;margin-top:12px;letter-spacing:.08em;color:rgba(255,255,255,.85)}
+#p5 .how{position:absolute;left:64px;right:64px;top:1020px;display:flex;flex-direction:column;gap:14px}
+#p5 .how div{display:flex;align-items:center;gap:20px;font-family:"Noto Sans CJK TC";font-size:27px;letter-spacing:.04em;
+  background:#fff;color:var(--navy);border-radius:16px;padding:20px 26px}
+#p5 .how i{font-style:normal;width:48px;height:48px;border-radius:50%;background:var(--gold);color:#fff;font-family:"TeX Gyre Pagella";font-size:26px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+#p5 .how b{font-weight:700}
+#p5 .event{position:absolute;left:64px;right:64px;top:1370px;text-align:center;font-family:"Noto Sans CJK TC";font-size:24px;letter-spacing:.1em;color:var(--gold-l)}
+#p5 .light-ring{position:absolute;right:-180px;top:-140px;width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(214,174,106,.35),rgba(214,174,106,0) 65%)}
+</style></head><body>
+
+<template id="lines">
+<svg class="lines" viewBox="0 0 1040 1560" preserveAspectRatio="none">
+ <defs><linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#B58333" stop-opacity="0"/><stop offset=".5" stop-color="#D6AE6A" stop-opacity=".9"/><stop offset="1" stop-color="#B58333" stop-opacity="0"/></linearGradient></defs>
+ <path d="M-40 1500 C 260 1400, 520 1560, 1100 1380" stroke="url(#gl)" stroke-width="2" fill="none"/>
+ <path d="M600 -20 C 760 140, 900 200, 1100 160" stroke="url(#gl)" stroke-width="1.6" fill="none"/>
+</svg>
+</template>
+
+<!-- ============ P1 我的介紹 ============ -->
+<section class="page dark" id="p1">
+ <div class="lineshost"></div>
+ <div class="ring"></div><div class="glow"></div>
+ <img class="photo" src="assets/photo.png">
+ <img class="logo" src="assets/logo_dark.png">
+ <div class="txt">
+  <div class="kicker"><i></i>PROFILE</div>
+  <div class="bigname" style="margin-top:28px">小鈴</div>
+  <div class="eling script">Eling</div>
+  <div class="role">7E商學院｜公關長</div>
+  <div class="quote">連結對的人，<br><em>讓合作自然發生。</em></div>
+  <ul>
+   <li><b>人脈資源連結</b>為品牌與創業者媒合合作機會</li>
+   <li><b>「談出合作力」講師</b>職能五獸聚力・人才定位</li>
+   <li><b>「人脈連結力」講師</b>數字密碼學・說話贏人心</li>
+  </ul>
+  <div class="tags"><span>外柔內剛</span><span>公關人脈</span></div>
+ </div>
+</section>
+
+<!-- ============ P2 7E 理念 + 兩大系統 ============ -->
+<section class="page light" id="p2">
+ <div class="lineshost"></div>
+ <img class="logo" src="assets/logo_light.png">
+ <div class="byv script">Be Your<br>True Value</div>
+ <div class="head">
+  <div class="kicker"><i></i>7E 理念</div>
+  <h2>天賦，是被看見之前的礦<br><span class="gold">7E，是把它煉成光的地方</span></h2>
+  <div class="lead">從個人品牌到商業品牌，7E 用一套可以<b style="color:var(--navy)">學習、實踐、複製</b>的方法，<br>陪你找到定位、發揮天賦、發出價值。</div>
+  <div class="pill3"><span>天賦定位</span><span>商模統整</span><span>資源連結</span></div>
+ </div>
+ <div class="sys">
+  <div class="sc n">
+   <div class="lab">PERSONAL BRAND</div>
+   <div class="t">個人品牌 7E</div>
+   <div class="min"><b>3</b>分鐘・14 題・7 大面向</div>
+   <ol>
+    <li><i>E1</i>本質｜覺察力 <span>Essence</span></li>
+    <li><i>E2</i>眼界｜共感力 <span>Eye</span></li>
+    <li><i>E3</i>進化｜連結力 <span>Evolution</span></li>
+    <li><i>E4</i>影響｜號召力 <span>Effect</span></li>
+    <li><i>E5</i>教育｜演說力 <span>Education</span></li>
+    <li><i>E6</i>執行者｜領導力 <span>Executor</span></li>
+    <li><i>E7</i>獨家｜決策力 <span>Exclusive</span></li>
+   </ol>
+  </div>
+  <div class="sc w">
+   <div class="lab">BUSINESS BRAND</div>
+   <div class="t">商業品牌 7E</div>
+   <div class="min"><b>5</b>分鐘・7 大階段健檢</div>
+   <ol>
+    <li><i>01</i>探索 <span>Explore</span></li>
+    <li><i>02</i>進化 <span>Evolve</span></li>
+    <li><i>03</i>賦能 <span>Empower</span></li>
+    <li><i>04</i>執行 <span>Execute</span></li>
+    <li><i>05</i>參與 <span>Engage</span></li>
+    <li><i>06</i>提升 <span>Enhance</span></li>
+    <li><i>07</i>升華 <span>Elevate</span></li>
+   </ol>
+  </div>
+ </div>
+ <div class="foot">免 費 健 檢 ・ 立 即 產 生 報 告</div>
+</section>
+
+<!-- ============ P3 四獸 / 五獸 ============ -->
+<section class="page dark" id="p3">
+ <div class="lineshost"></div>
+ <img class="logo" src="assets/logo_dark.png">
+ <div class="head">
+  <div class="kicker"><i></i>人才職能定位</div>
+  <h2>職能四獸 <span class="goldl">×</span> 五獸聚力</h2>
+  <div class="badge">孵化五年・亞洲獨家人才職能定位系統</div>
+  <div class="story">典故源自東方「四象」：<b>青龍</b>守東、<b>白虎</b>守西、<b>朱雀</b>守南、<b>玄武</b>守北，各司其職、守護四方；再加上居中央、對應五行「中央土」的<b>黃龍</b>，統合四方成為核心。7E 花了五年，把這套古老智慧轉化為現代職能語言——看懂一個人的天賦原型，也看懂一個團隊如何相互成就。</div>
+ </div>
+ <div class="duo">
+  <div class="bc"><img src="assets/four.png">
+   <div class="cap"><div class="k">個人探索・職涯發展</div><div class="t">職能四獸</div><div class="m"><b>3</b>分鐘 看見你的天賦原型</div></div></div>
+  <div class="bc"><img src="assets/five.png">
+   <div class="cap"><div class="k">企業團隊・組織發展</div><div class="t">五獸聚力</div><div class="m"><b>5</b>分鐘 檢視團隊協作力</div></div></div>
+ </div>
+ <div class="foot">一 個 人 走 得 快 ， 一 群 對 的 人 才 能 走 得 遠</div>
+</section>
+
+<!-- ============ P4 服務 & 顧問與行銷團隊 ============ -->
+<section class="page light" id="p4">
+ <div class="lineshost"></div>
+ <img class="logo" src="assets/logo_light.png">
+ <div class="head">
+  <div class="kicker"><i></i>7E 服務</div>
+  <h2>一個窗口，<span class="gold">整合品牌所需</span></h2>
+  <div class="lead">顧問團隊看方向，行銷團隊做落地。<br>從健檢、諮詢、方案規劃到執行，一步一步做對。</div>
+ </div>
+ <div class="rows">
+  <div class="row"><div class="side"><b>01</b><i></i><span>商</span></div><div class="main">
+   <div class="t">品牌行銷 & 資源整合</div>
+   <div class="d">統整商業模式與行銷漏斗，由專業團隊分工執行。</div>
+   <div class="chips"><span>品牌定位</span><span>行銷漏斗</span><span>影音製作</span><span>廣告投放</span><span>SEO & AEO</span><span>媒體曝光</span></div></div></div>
+  <div class="row"><div class="side"><b>02</b><i></i><span>顧</span></div><div class="main">
+   <div class="t">顧問服務</div>
+   <div class="d">依企業現況給出可執行的方向，不只給建議，也陪你落地。</div>
+   <div class="chips"><span>行銷顧問</span><span>產業轉型</span><span>人才職涯</span><span>政府補助</span></div></div></div>
+  <div class="row"><div class="side"><b>03</b><i></i><span>教</span></div><div class="main">
+   <div class="t">企業內訓 & 商業教育</div>
+   <div class="d">以「談出合作力－五獸聚力」為核心，讓團隊從內部開始一致。</div>
+   <div class="chips"><span>團隊內訓</span><span>銷售力課程</span><span>客製化內訓</span><span>到府／線上</span></div></div></div>
+  <div class="team" style="margin-top:6px"><div class="ic"><svg viewBox="0 0 48 48"><circle cx="17" cy="16" r="6"/><circle cx="33" cy="16" r="6"/><path d="M6 38c1-7 6-11 11-11s8 2 9 5M22 38c1-7 6-11 11-11s10 4 11 11"/></svg></div>
+  <div><b>顧問團隊 × 行銷團隊</b><p>健檢 → 品牌諮詢 → 方案規劃 → 團隊執行與資源媒合</p></div></div>
+ </div>
+ <div class="foot">天 賦 定 位 ・ 商 模 統 整 ・ 資 源 連 結</div>
+</section>
+
+<!-- ============ P5 義肢 Skin 公益 ============ -->
+<section class="page dark" id="p5">
+ <div class="lineshost"></div><div class="light-ring"></div>
+ <img class="logo" src="assets/logo_dark.png">
+ <div class="head">
+  <div class="kicker"><i></i>7E 公益計畫</div>
+  <h2>義肢 <span class="goldl">Skin</span><br>讓缺口成為光</h2>
+  <div class="sub">因為有你，世界更亮</div>
+  <div class="desc">為因意外或疾病缺肢的<b>生命鬥士</b>，量身打造客製化義肢外觀護套，讓義肢成為展現個人風格的一部分，<b>幫助他們重拾自信</b>、勇敢面對生活。</div>
+ </div>
+ <div class="stats">
+  <div class="st"><b>30<small>萬</small></b><span>募款目標</span></div>
+  <div class="st"><b>2–3</b><span>位生命鬥士</span></div>
+  <div class="st"><b>1<small>年</small></b><span>計畫期程</span></div>
+ </div>
+ <div class="how">
+  <div><i>1</i><span><b>公益講座</b>・匯聚更多人的愛心</span></div>
+  <div><i>2</i><span><b>3D 列印</b>・量身設計義肢外觀</span></div>
+  <div><i>3</i><span><b>小額捐款</b>・666 / 888 / 1,000 元或自訂</span></div>
+ </div>
+ <div class="event">公益大使 張登傑 ｜ 與 7E商學院 共同發起</div>
+</section>
+
+<script>
+const t=document.getElementById('lines');
+document.querySelectorAll('.lineshost').forEach(h=>h.replaceWith(t.content.cloneNode(true)));
+</script>
+</body></html>

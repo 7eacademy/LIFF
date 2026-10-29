@@ -1,1 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小鈴 Eling 電子名片</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<style>
+  body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+       background:#212E3E;color:#fff;font-family:"Noto Serif TC",serif;text-align:center;padding:24px;box-sizing:border-box}
+  img{width:min(78vw,320px);border-radius:16px;box-shadow:0 10px 30px rgba(120,90,50,.18)}
+  p{letter-spacing:.1em;color:#E9D3A8}
+  button{margin-top:18px;padding:14px 40px;border:0;border-radius:999px;background:#B58333;color:#fff;font-size:17px;letter-spacing:.2em}
+</style>
+</head>
+<body>
+<img src="img/card1.jpg" alt="小鈴 Eling 電子名片">
+<p id="msg">正在開啟分享…</p>
+<button id="again" hidden>選擇好友分享</button>
 
+<script>
+/* ===================== 只需要改這一區 ===================== */
+const CONFIG = {
+  LIFF_ID:  "請填入你的LIFF_ID",            // 例：2001234567-AbCdEfGh
+  BASE_URL: "https://你的網域/namecard/",   // 本資料夾上傳後的網址（結尾要有 /）
+  IG_ELING: "https://www.instagram.com/7eling1917",
+  IG_7E:    "https://www.instagram.com/7e.academy",
+  CHECK_PERSONAL: "https://script.google.com/macros/s/AKfycbxkagEi45qvx8kurzzQZzt4EuxrPq9wK5jHul7WluA_wlZ-omV9yP-XB6HI2fDc2ZGq7g/exec",
+  CHECK_BUSINESS: "https://script.google.com/macros/s/AKfycby1lqhYRPg13FRx9kmf2TvVia7PBwr04NjiNwlbLX8F6y161umwgQAp1BWgdXw3V8xrSQ/exec",
+  TEST_FOUR: "https://script.google.com/macros/s/AKfycbz_0wawKOSQJ_3v2WL0TVwLK_Ko7MPzASto-brG-YWBmPgsWjQL3P51NALQB0FlG_pU/exec",
+  TEST_FIVE: "https://script.google.com/macros/s/AKfycbyp1NUXZxcovjfX5PZ3Hw6zkSJE8P99R8nAfbxA6IclsHWbgjjsFwgHNdbbhPH38d6dig/exec",
+  LINE_7E:  "https://lin.ee/vf0gqI5",
+  WEBSITE:  "https://7eacademy.com/",        // 官網更新完成後改這裡
+  SKIN_STORY:  "https://7eacademy.com/skin/",
+  SKIN_DONATE: "https://7eacademy.com/skin/donate.html",
+};
+/* ========================================================== */
+
+const NAVY = "#212E3E", GOLD = "#B58333";
+const btn = (label, uri, color) => ({
+  type: "button", style: "primary", color, height: "md",
+  action: { type: "uri", label, uri }
+});
+const bubble = (img, b1, b2) => ({
+  type: "bubble", size: "giga",
+  hero: { type: "image", url: CONFIG.BASE_URL + img, size: "full",
+          aspectRatio: "2:3", aspectMode: "cover", action: { type: "uri", uri: b1.action.uri } },
+  footer: { type: "box", layout: "vertical", spacing: "sm", paddingAll: "12px",
+            backgroundColor: "#F2F2F2", contents: [b1, b2] }
+});
+
+const card = {
+  type: "flex",
+  altText: "小鈴 Eling｜7E商學院 公關長 電子名片",
+  contents: { type: "carousel", contents: [
+    bubble("img/card1.jpg", btn("小鈴 Instagram", CONFIG.IG_ELING, GOLD),       btn("7E商學院 Instagram", CONFIG.IG_7E, NAVY)),
+    bubble("img/card2.jpg", btn("免費健檢｜個人品牌", CONFIG.CHECK_PERSONAL, GOLD), btn("免費健檢｜商業品牌", CONFIG.CHECK_BUSINESS, NAVY)),
+    bubble("img/card3.jpg", btn("職能四獸｜個人檢測", CONFIG.TEST_FOUR, GOLD),      btn("五獸聚力｜團隊檢測", CONFIG.TEST_FIVE, NAVY)),
+    bubble("img/card4.jpg", btn("7E 官方 LINE@", CONFIG.LINE_7E, GOLD),          btn("7E 官網", CONFIG.WEBSITE, NAVY)),
+    bubble("img/card5.jpg", btn("公益歷程", CONFIG.SKIN_STORY, GOLD),             btn("愛心捐款", CONFIG.SKIN_DONATE, NAVY)),
+  ]}
+};
+
+const msg = document.getElementById("msg"), again = document.getElementById("again");
+
+async function share() {
+  try {
+    const res = await liff.shareTargetPicker([card], { isMultiple: true });
+    if (res) { msg.textContent = "已送出，謝謝你的分享 ✦"; setTimeout(() => liff.closeWindow(), 1200); }
+    else { msg.textContent = "已取消分享"; again.hidden = false; }
+  } catch (e) { msg.textContent = "分享失敗：" + e.message; again.hidden = false; }
+}
+
+liff.init({ liffId: CONFIG.LIFF_ID }).then(() => {
+  if (!liff.isLoggedIn()) { liff.login({ redirectUri: location.href }); return; }
+  if (!liff.isApiAvailable("shareTargetPicker")) { msg.textContent = "請用手機 LINE 開啟此連結"; return; }
+  share();
+}).catch(e => msg.textContent = "初始化失敗：" + e.message);
+
+again.onclick = share;
+</script>
+</body>
+</html>
